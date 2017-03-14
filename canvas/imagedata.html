@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <canvas id="c" width="200" height="200" />
+    <script>
+        var c = document.querySelector("#c");
+        var ctx = c.getContext("2d");
+
+        var imgData = ctx.getImageData(0, 0, 200, 200);
+
+        for (var y = 0; y < imgData.height; y++) {
+            for (var x = 0; x < imgData.width; x++) {
+                if ((x - y) % 10 === 0) {
+                    //console.log("i:" + i);
+                    var index = (y * imgData.width + x) * 4;
+                    imgData.data[index + 1] = 204;
+                    imgData.data[index + 3] = 255;
+                }
+            }
+        }
+
+        ctx.putImageData(imgData, 0, 0);
+    </script>
+</body>
