@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <canvas id="c" width="400" height="300" />
+    <script type="text/javascript">
+        var image = new Image();
+        image.onload = function () {
+            var c = document.querySelector("#c");
+            var ctx = c.getContext("2d");
+
+            console.log("loaded image");
+            ctx.drawImage(this, 0, 0, c.width, c.height);
+
+            //var savedImage = c.toDataURL();
+            //window.open(savedImage);
+        }
+        image.src = "fry-fixed.jpg";
+
+    </script>
+</body>
+
+</html>
