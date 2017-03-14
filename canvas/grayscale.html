@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <canvas id="c" width="507" height="377"></canvas>
+    <canvas id="c" width="100" height="100"></canvas>
 
     <script>
         var canvas = document.querySelector("#c");
@@ -16,6 +16,8 @@
 
         var image = new Image();
         image.onload = function () {
+            ctx.canvas.width = image.width;
+            ctx.canvas.height = image.height;
             ctx.drawImage(image, 0, 0);
 
             var imgData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
